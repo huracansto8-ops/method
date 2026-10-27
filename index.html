@@ -11,23 +11,27 @@
 <body>
     <h1>Available Modules</h1>
     <!-- Add buttons for your games here -->
-    <button class="game-btn" onclick="openCloaked('https://youtube.com')">Launch 1v1.lol</button>
-    <button class="game-btn" onclick="openCloaked('https://gx-launcher.github.io/')">Launch Eaglercraft 26.3</button>
+   <button class="game-btn" onclick="openSecret()">Launch Game</button>
 
-    <script>
-    function openCloaked(url) {
-        var link = window.open();
-        var iframe = link.document.createElement('iframe');
-        iframe.style.position = "fixed";
-        iframe.style.width = "100vw";
-        iframe.style.height = "100vh";
-        iframe.style.top = "0";
-        iframe.style.left = "0";
-        iframe.style.border = "none";
-        iframe.style.backgroundColor = "black";
-        iframe.src = url;
-        link.document.body.appendChild(iframe);
-    }
-    </script>
+<script>
+function openSecret() {
+    var win = window.open();
+    var iframe = win.document.createElement('iframe');
+    iframe.style.width = "100vw";
+    iframe.style.height = "100vh";
+    iframe.style.border = "none";
+    
+    // Replace the text inside the quotes below with a fresh, unblocked source link
+    var targetUrl = "https://gx-launcher.github.io/"; 
+    
+    // This encodes the URL structure into a blob object so filters can't trace the source domain
+    var htmlContent = `<html><body style='margin:0'><iframe src='${targetUrl}' style='width:100vw;height:100vh;border:none;'></iframe></body></html>`;
+    var blob = new Blob([htmlContent], {type: 'text/html'});
+    
+    iframe.src = URL.createObjectURL(blob);
+    win.document.body.appendChild(iframe);
+}
+</script>
+
 </body>
 </html>
