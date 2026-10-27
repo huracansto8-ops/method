@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Study Resource Hub</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #fafafa; }
+        .game-btn { padding: 10px 20px; font-size: 16px; cursor: pointer; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Available Modules</h1>
+    <!-- Add buttons for your games here -->
+    <button class="game-btn" onclick="openCloaked('https://youtube.com')">Launch 1v1.lol</button>
+    <button class="game-btn" onclick="openCloaked('https://gx-launcher.github.io/')">Launch Eaglercraft 26.3</button>
+
+    <script>
+    function openCloaked(url) {
+        var link = window.open();
+        var iframe = link.document.createElement('iframe');
+        iframe.style.position = "fixed";
+        iframe.style.width = "100vw";
+        iframe.style.height = "100vh";
+        iframe.style.top = "0";
+        iframe.style.left = "0";
+        iframe.style.border = "none";
+        iframe.style.backgroundColor = "black";
+        iframe.src = url;
+        link.document.body.appendChild(iframe);
+    }
+    </script>
+</body>
+</html>
